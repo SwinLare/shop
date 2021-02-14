@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const prefix = "-";
 
-bot.login("ODEwNTkyOTI5MzA2NTA5MzEy.YCl5fg.DyFC3IyYNZ7NlHilucFJZNhCqzE")
+bot.login("ODEwNTkyOTI5MzA2NTA5MzEy.YCl5fg.0jNlmLbqMF_XnuBszmnwK9DEbno")
 
 bot.on('message', msg => {
     if (msg.content.startsWith( prefix + 'new')) {
