@@ -50,3 +50,27 @@ bot.on('message', msg => {
     }
     
 });
+
+bot.on("message", message => {
+    if(message.author.bot)return;
+    if(message.channel.type == "dm")return;
+    if(message.content == prefix + "serveur"){
+Gamedig.query({
+    type: 'garrysmod',
+    host: '164.132.206.95',
+    port: '27072'
+}).then((state) => {
+  let embed = new Discord.MessageEmbed()
+              .setTitle(state.name)
+              .addField("Map :map:", state.map, true)
+              .addField("Ping :round_pushpin:", state.ping, true)
+              .addField("Nombre de joueurs :busts_in_silhouette:", `${result.players.length}/${result.maxplayers}`, true)
+              .addField("Se connecter :paperclip:", state.connect, true)
+              .addField("Mot de passe :lock:", state.password, true)
+  message.channel.send(embed)
+}).catch((error) => {
+    console.log("Le serveur est Hors Ligne.");
+  
+});
+}
+})
